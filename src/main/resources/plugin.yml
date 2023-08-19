@@ -1,0 +1,8 @@
+name: ByteChat
+version: '${project.version}'
+main: me.ppgome.bytechat.ByteChat
+api-version: 1.20
+prefix: ByteChat
+authors: [ PPGOME ]
+description: A plugin providing highly customizable chat options.
+website: https://github.com/PPGOME/ByteChat

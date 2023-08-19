@@ -18,6 +18,7 @@ public final class ByteChat extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         CommandAPI.onEnable();
+        System.out.println("Plugin successfully loaded!");
 
     }
 

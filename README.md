@@ -1,5 +1,6 @@
 # ByteChat
 Stable: [![CodeFactor](https://www.codefactor.io/repository/github/ppgome/bytechat/badge)](https://www.codefactor.io/repository/github/ppgome/bytechat) Development: [![CodeFactor](https://www.codefactor.io/repository/github/ppgome/bytechat/badge/development)](https://www.codefactor.io/repository/github/ppgome/bytechat/overview/development)
+
 A Paper plugin for Minecraft that overhauls how chat works and appears for users.
 
 Planned features:

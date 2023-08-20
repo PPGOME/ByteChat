@@ -20,6 +20,7 @@ public class ChatEvent implements Listener {
         String hexcode = interactor.getChatColour();
 
         for(Player player : Bukkit.getOnlinePlayers()) {
+            //TODO Make this look like a real message
             player.sendMessage(e.message().color(TextColor.fromHexString(hexcode)));
         }
     }

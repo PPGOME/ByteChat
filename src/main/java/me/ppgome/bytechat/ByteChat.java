@@ -2,6 +2,7 @@ package me.ppgome.bytechat;
 
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
+import me.ppgome.bytechat.commands.ChatColourModifier;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,7 +18,10 @@ public final class ByteChat extends JavaPlugin {
     private static ByteChat plugin;
 
     @Override
-    public void onLoad() { CommandAPI.onLoad(new CommandAPIBukkitConfig(this).silentLogs(true)); }
+    public void onLoad() {
+        CommandAPI.onLoad(new CommandAPIBukkitConfig(this).silentLogs(true));
+        ChatColourModifier.ChatColourCommand();
+    }
 
     @Override
     public void onEnable() {

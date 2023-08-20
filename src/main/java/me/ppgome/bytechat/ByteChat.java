@@ -2,7 +2,10 @@ package me.ppgome.bytechat;
 
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Level;
 
 /**
  * The primary class which is an instance of the plugin.
@@ -11,14 +14,18 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public final class ByteChat extends JavaPlugin {
 
+    private static ByteChat plugin;
+
     @Override
     public void onLoad() { CommandAPI.onLoad(new CommandAPIBukkitConfig(this).silentLogs(true)); }
 
     @Override
     public void onEnable() {
+        plugin = this;
         // Plugin startup logic
         CommandAPI.onEnable();
-        System.out.println("Plugin successfully loaded!");
+
+        Bukkit.getServer().getLogger().log(Level.ALL, "Plugin successfully loaded!");
 
     }
 
@@ -28,6 +35,10 @@ public final class ByteChat extends JavaPlugin {
         CommandAPI.onDisable();
     }
 
-    public ByteChat getPlugin() { return this; }
+    /**
+     * A method for getting an instance of the plugin.
+     * @return instance of the plugin
+     */
+    public static ByteChat getPlugin() { return plugin; }
 
 }

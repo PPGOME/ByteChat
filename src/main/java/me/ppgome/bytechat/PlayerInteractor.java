@@ -33,8 +33,8 @@ public class PlayerInteractor {
             String warning = "Player " + player.getName() + " failed a colour fetch. Setting their colour to WHITE (#ffffff)";
             container.set(code, PersistentDataType.STRING, "#ffffff");
             Bukkit.getServer().getLogger().log(Level.WARNING, warning) ;
+            return container.get(code, PersistentDataType.STRING);
         }
-        return null;
     }
 
 }

@@ -3,6 +3,7 @@ package me.ppgome.bytechat;
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import me.ppgome.bytechat.commands.ChatColourModifier;
+import me.ppgome.bytechat.events.ChatEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +15,8 @@ import java.util.logging.Level;
  * @version 1.0
  */
 public final class ByteChat extends JavaPlugin {
+
+    //TODO Why does the plugin crash the client with TypeWriter?
 
     private static ByteChat plugin;
 
@@ -30,6 +33,8 @@ public final class ByteChat extends JavaPlugin {
         CommandAPI.onEnable();
 
         Bukkit.getServer().getLogger().log(Level.ALL, "Plugin successfully loaded!");
+
+        getServer().getPluginManager().registerEvents(new ChatEvent(), this);
 
     }
 

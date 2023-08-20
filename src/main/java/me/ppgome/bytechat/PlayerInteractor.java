@@ -12,19 +12,25 @@ public class PlayerInteractor {
 
     final static ByteChat plugin = ByteChat.getPlugin();
 
-    public static void setChatColour(Player p, String hexcode) {
-        NamespacedKey code = new NamespacedKey(plugin, "chat-hex");
-        p.getPersistentDataContainer().set(code, PersistentDataType.STRING, hexcode);
+    private Player player;
+
+    public PlayerInteractor(Player player) {
+        this.player = player;
     }
 
-    public static String getChatColour(Player p) {
+    public void setChatColour(String hexcode) {
         NamespacedKey code = new NamespacedKey(plugin, "chat-hex");
-        PersistentDataContainer container = p.getPersistentDataContainer();
+        player.getPersistentDataContainer().set(code, PersistentDataType.STRING, hexcode);
+    }
+
+    public String getChatColour() {
+        NamespacedKey code = new NamespacedKey(plugin, "chat-hex");
+        PersistentDataContainer container = player.getPersistentDataContainer();
         if(container.has(code, PersistentDataType.STRING)) {
             return container.get(code, PersistentDataType.STRING);
         }
         else {
-            String warning = "Player " + p.getName() + " failed a colour fetch. Setting their colour to WHITE (#ffffff)";
+            String warning = "Player " + player.getName() + " failed a colour fetch. Setting their colour to WHITE (#ffffff)";
             container.set(code, PersistentDataType.STRING, "#ffffff");
             Bukkit.getServer().getLogger().log(Level.WARNING, warning) ;
         }
